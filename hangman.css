@@ -149,7 +149,10 @@ a {
 
 #hangm_guessbox {
     height: auto;
-    background: rgba(9, 103, 217, 0.4);
+    background: transparent;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 
+                 0 0 20px rgba(0, 255, 255, 0.8),
+                 0 0 30px rgba(0, 255, 255, 0.8);
     padding: 1em;
     border-radius: 10px;
     width: 90%;
@@ -201,6 +204,11 @@ input#guess {
 /* Voldemort parts positioning and sizing for various screen widths */
 
 @media (max-width: 768px) {
+    #hangm_guessbox {
+        width: 80%;
+        padding: 0.8em;
+        background: transparent;
+    }
     .man_head {
         width: 30%; /* Adjust size relative to container */
         height: 30%;
@@ -244,6 +252,11 @@ input#guess {
 }
 
 @media (max-width: 480px) {
+    #hangm_guessbox {
+        width: 85%;
+        padding: 0.6em;
+        background: transparent;
+    }
     .man_head {
         width: 35%; /* Adjust size relative to container */
         height: 35%;
