@@ -1,0 +1,287 @@
+html, body { 
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+    font-family: 'Arvo', serif;
+    text-align: center;
+    overflow: hidden;
+    background: url('images/background_2.jpg') no-repeat center center fixed; 
+    background-size: cover;
+}
+
+a {
+    color: #000;
+    margin: 0.2em;
+    text-decoration: none;
+}
+
+#hangm_gameover, #hangm_victory {
+    font-size: 2em;
+}
+
+#hangm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1em;
+}
+
+#hangm_content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#hangm_animation {
+    height: 30vw; /* Increase height for bigger images */
+    width: 30vw; /* Increase width for bigger images */
+    margin-right: 2em;
+    align-self: flex-start;
+    position: relative; /* Allows absolute positioning of hangman parts */
+    background-size: contain; /* Ensure background images resize properly */
+    background-repeat: no-repeat;
+}
+
+#hangm_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.h {
+    opacity: 0;
+}
+
+#hangm_word, 
+#hangm_guesses {
+    letter-spacing: 0.5em;
+    font-size: 1.5em;
+}
+
+.man_head, .man_upper, .man_lower {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute; /* Positioning relative to the animation container */
+    z-index: 10; /* Ensure the parts are on top of other elements */
+}
+
+/* Rope */
+.rope {
+    width: 2%;
+    height: 20%;
+    background-color: #996633;
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Adding images to the man parts */
+.man_head {
+    width: 25%; /* Increased size */
+    height: 25%;
+    top: calc(10% + 10%); /* Position the head just below the rope */
+    left: calc(60% - (25% / 2)); /* Center the head with respect to the rope */
+    background-image: url('images/voldemort_head_2.png'); /* Voldemort head image */
+}
+
+.man_upper {
+    width: 28%; /* Increased size */
+    height: 30%;
+    top: calc(10% + 17%); /* Position the upper body just below the head */
+    left: calc(60% - (28% / 2)); /* Center the upper body */
+    background-image: url('images/voldemort_upper_2.png'); /* Voldemort upper body image */
+}
+
+.man_lower {
+    width: 25%; /* Increased size */
+    height: 25%;
+    top: calc(10% + 38%); /* Position the lower body just below the upper body */
+    left: calc(60% - (25% / 2)); /* Center the lower body */
+    background-image: url('images/voldemort_lower_2.png'); /* Voldemort lower body image */
+}
+
+.pole_h {
+    width: 60%;
+    height: 5%;
+    background: #000;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+}
+
+.pole_v {
+    width: 5%;
+    height: 80%;
+    background: #000;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+}
+
+#title {
+    font-family: 'Creepster', cursive;
+    font-size: 3em;
+    color: #000;
+    margin-bottom: 1em;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+#title:hover {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 
+                 0 0 20px rgba(0, 255, 255, 0.8),
+                 0 0 30px rgba(0, 255, 255, 0.8);
+}
+
+.spacer {
+    height: 2em;
+}
+
+#hangm_guessbox {
+    height: auto;
+    background: rgba(9, 103, 217, 0.4);
+    padding: 1em;
+    border-radius: 10px;
+    width: 90%;
+}
+
+input#guess {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1em;
+    background: rgba(9, 103, 145, 1);
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#hangm_hint {
+    font-size: 1.2em;
+    margin-top: 1em;
+    color: rgba(15, 15, 15, 0.7);
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+#hangm_hint:hover {
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.4), 
+                 0 0 20px rgba(255, 0, 0, 0.4),
+                 0 0 30px rgba(255, 0, 0, 0.4);
+}
+
+#btn-start {
+    opacity: 0.9;
+    padding: 0.5em 2em;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: rgba(10, 10, 35, 0.8);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(240, 240, 240, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+#btn-start-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Voldemort parts positioning and sizing for various screen widths */
+
+@media (max-width: 768px) {
+    .man_head {
+        width: 30%; /* Adjust size relative to container */
+        height: 30%;
+        top: calc(10% + 15%); /* Adjust position relative to the rope */
+        left: calc(60% - (30% / 2)); /* Center head with respect to the rope */
+    }
+
+    .man_upper {
+        width: 32%; /* Adjust size relative to container */
+        height: 32%;
+        top: calc(10% + 25%); /* Adjust position below the head */
+        left: calc(60% - (32% / 2)); /* Center upper body */
+    }
+
+    .man_lower {
+        width: 30%; /* Adjust size relative to container */
+        height: 30%;
+        top: calc(10% + 45%); /* Adjust position below the upper body */
+        left: calc(60% - (30% / 2)); /* Center lower body */
+    }
+
+    .pole_h {
+        width: 60%;
+        height: 6%;
+    }
+
+    .pole_v {
+        width: 6%;
+        height: 80%;
+    }
+
+    .rope {
+        width: 2%;
+        height: 25%;
+    }
+
+    #btn-start {
+        font-size: 1em;
+        padding: 0.4em 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .man_head {
+        width: 35%; /* Adjust size relative to container */
+        height: 35%;
+        top: calc(10% + 18%); /* Adjust position relative to the rope */
+        left: calc(60% - (35% / 2)); /* Center head with respect to the rope */
+    }
+
+    .man_upper {
+        width: 35%; /* Adjust size relative to container */
+        height: 35%;
+        top: calc(10% + 30%); /* Adjust position below the head */
+        left: calc(60% - (35% / 2)); /* Center upper body */
+    }
+
+    .man_lower {
+        width: 35%; /* Adjust size relative to container */
+        height: 35%;
+        top: calc(10% + 50%); /* Adjust position below the upper body */
+        left: calc(60% - (35% / 2)); /* Center lower body */
+    }
+
+    .pole_h {
+        width: 60%;
+        height: 6%;
+    }
+
+    .pole_v {
+        width: 6%;
+        height: 80%;
+    }
+
+    .rope {
+        width: 3%;
+        height: 30%;
+    }
+
+    #btn-start {
+        font-size: 0.8em;
+        padding: 0.3em 1em;
+    }
+}
