@@ -256,7 +256,11 @@ input#guess {
         width: 85%;
         padding: 0.6em;
         background: transparent;
+        margin: 0 auto; /* Center the guess box */
+        display: block; /* Ensure the guess box is treated as a block-level element */
     }
+    
+    /* Other mobile-specific styles */
     .man_head {
         width: 35%; /* Adjust size relative to container */
         height: 35%;
