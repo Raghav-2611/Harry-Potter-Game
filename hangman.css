@@ -64,6 +64,7 @@ a {
 #hangm_guesses {
     letter-spacing: 0.5em;
     font-size: 1.5em;
+    color: white;
 }
 
 .man_head, .man_upper, .man_lower {
@@ -162,9 +163,10 @@ input#guess {
     width: 100%;
     padding: 0.5em;
     font-size: 1em;
-    background: rgba(9, 103, 145, 1);
+    background: rgba(10, 10, 35, 0.8);
     border: none;
     border-radius: 5px;
+    color: white;
     box-sizing: border-box;
 }
 
@@ -172,13 +174,9 @@ input#guess {
     font-size: 1.2em;
     margin-top: 1em;
     color: rgba(15, 15, 15, 0.7);
-    transition: text-shadow 0.3s ease-in-out;
-}
-
-#hangm_hint:hover {
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.4), 
-                 0 0 20px rgba(255, 0, 0, 0.4),
-                 0 0 30px rgba(255, 0, 0, 0.4);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.4), 
+                 0 0 20px rgba(0, 255, 255, 0.4),
+                 0 0 30px rgba(0, 255, 255, 0.4);
 }
 
 #btn-start {
@@ -249,8 +247,15 @@ input#guess {
         font-size: 1em;
         padding: 0.4em 1.5em;
     }
-}
+    #hangm_hint {
+        font-size: 1em; /* Make the hint smaller on medium screens */
+    }
 
+    #hangm_guessbox {
+        width: 80%;
+        padding: 0.8em;
+    }
+}
 @media (max-width: 480px) {
     #hangm_guessbox {
         width: 85%;
@@ -300,5 +305,15 @@ input#guess {
     #btn-start {
         font-size: 0.8em;
         padding: 0.3em 1em;
+    }
+    #hangm_hint {
+        font-size: 0.9em; /* Further reduce the hint size for small screens */
+        margin-top: 0.5em;
+    }
+
+    #hangm_guessbox {
+        width: 85%;
+        padding: 0.6em;
+        margin: 0 auto;
     }
 }
