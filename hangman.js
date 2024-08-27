@@ -9,7 +9,6 @@ var Hangman = (function () {
             { word: 'GOLDEN SNITCH', hint: 'A small, winged ball in Quidditch that ends the game when caught' },
             { word: 'GALLEON', hint: 'The main currency in the wizarding world, made of gold' },
             { word: 'MIRROR OF ERISED', hint: 'A mirror that shows the deepest desires of the viewers heart' },
-            { word: 'PHILOSEPHERS STONE', hint: ' A legendary stone that grants immortality and turns any metal into gold' },
             { word: 'INVISIBILITY CLOAK', hint: 'A cloak that renders the wearer completely invisible' },
             { word: 'CHAMBER OF SECRETS', hint: 'A hidden chamber within Hogwarts housing a deadly monster' },
             { word: 'QUIDITCH', hint: 'A popular magical sport played on broomsticks' },
